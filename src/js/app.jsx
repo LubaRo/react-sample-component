@@ -1,27 +1,53 @@
 import { createElement } from 'react'
 import { render } from 'react-dom'
 import Post from "./components/Post.jsx"
-import Comment from "./components/Comment.jsx"
+import CommentBox from "./components/CommentBox.jsx";
 
 const node = document.getElementById("root");
-
-const postData = {
-  id: 1,
-  content: ' said: This post about the non-sugar diet benefits',
-  user: 'Elizabeth Smith'
-};
-const commentData = {
-  id: 12,
-  content: ': Super cool!',
-  user: 'Monique JJ'
+const data = {
+  post: {
+    id: 123,
+    content:
+      "What we hope ever to do with ease, we must first learn to do with diligence. — Samuel Johnson",
+    user: "Mark Thomas"
+  },
+  comments: [
+    {
+      id: 0,
+      user: "David",
+      content: "such. win."
+    },
+    {
+      id: 1,
+      user: "Haley",
+      content: "Love it."
+    },
+    {
+      id: 2,
+      user: "Peter",
+      content: "Who was Samuel Johnson?"
+    },
+    {
+      id: 3,
+      user: "Mitchell",
+      content: "@Peter get off Letters and do your homework"
+    },
+    {
+      id: 4,
+      user: "Peter",
+      content: "@mitchell ok :P"
+    }
+  ]
 };
 
 const App = createElement(
   Post,
-  postData,
+  data.post,
   createElement(
-    Comment,
-    commentData
+    CommentBox,
+    {
+      comments: data.comments
+    }
   )
 )
 
