@@ -9,6 +9,14 @@ class CommentBox extends Component {
     this.state = {
       comments: this.props.comments
     }
+    this.commentSubmitHandler = this.commentSubmitHandler.bind(this);
+  }
+  commentSubmitHandler(userName, text) {
+    const newCommentsList = this.state.comments.concat([{ user: userName, content: text, id: Date.now()}]);
+
+    this.setState({
+      comments: newCommentsList
+    })
   }
   render() {
     const comments = this.state.comments.map(function (comment) {
@@ -21,11 +29,19 @@ class CommentBox extends Component {
     })
     return React.createElement(
       'div',
-      {className: 'commentBox'},
-      ...comments,
-      React.createElement(CreateComment)
+      {className: 'commentBox ms-5'},
+      React.createElement('div', { className: 'comments-list' }, comments),
+      React.createElement(CreateComment, { onSubmitHandler: this.commentSubmitHandler })
     )
   }
+}
+
+CommentBox.propTypes = {
+  comments: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    content: PropTypes.string.isRequired,
+    user: PropTypes.string.isRequired
+  }))
 }
 
 export default CommentBox;

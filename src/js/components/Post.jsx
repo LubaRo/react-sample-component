@@ -4,10 +4,15 @@ import PropTypes from "prop-types";
 class Post extends Component {
   render() {
     return React.createElement(
-      "div", { className: 'post' }, React.createElement(
-        "h2", { className: 'post-author', id: this.props.id }, this.props.user, React.createElement(
-            "span", { className: 'post-body' }, this.props.content
-        ),
+      "div", { className: 'post-content' }, React.createElement(
+        "div", { className: 'post card border-success mb-3' }, [
+          React.createElement(
+            "div", { className: 'post-author card-header bg-success text-white', id: this.props.id }, this.props.user
+          ),
+          React.createElement(
+            "div", { className: 'post-body card-body' }, this.props.content
+          ),
+        ]
       ),
       this.props.children
     )

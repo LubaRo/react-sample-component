@@ -3,11 +3,16 @@ import PropTypes from "prop-types";
 
 class Comment extends Component {
   render() {
-    return React.createElement("div",{ className: "comment" }, React.createElement(
-      "h3", { className: "commentAuthor" }, this.props.user, React.createElement(
-        "span", { className: "commentContent" }, this.props.content
+    return React.createElement(
+      "div",
+      { className: "comment card mb-3" },
+      React.createElement(
+      "div", { className: "commentAuthor card-header" }, this.props.user
+      ),
+      React.createElement(
+        "div", { className: "commentContent card-body" }, this.props.content
       )
-    ));
+    );
   }
 }
 
