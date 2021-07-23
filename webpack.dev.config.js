@@ -7,7 +7,7 @@ module.exports = {
     filename: "bundle.js",
     clean: true,
   },
-  //devtool: 'inline-source-map',
+  devtool: 'inline-source-map',
   module: {
     rules: [
       {
