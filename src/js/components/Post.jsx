@@ -1,35 +1,24 @@
-import React, {Component, createElement} from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import CommentBox from "./CommentBox.jsx";
 
-class Post extends Component {
+class Post extends React.Component {
   render() {
     const post = this.props.post;
-    return React.createElement(
-      "div", { className: 'post-content' }, React.createElement(
-        "div",
-        { className: 'post card border-success mb-3' },
-          React.createElement(
-            "div", { className: 'post-author card-header bg-success text-white', id: post.id }, post.user
-          ),
-          React.createElement(
-            "div", { className: 'post-body card-body' }, post.content
-          ),
-      ),
-      createElement(
-        'div',
-        {
-          className: 'test-block'
-        },
-        "Children content"
-      ),
-      createElement(
-        CommentBox,
-        {
-          comments: this.props.comments
-        }
-      )
-    )
+    return (
+      <div className='post-content'>
+        <div className='post card border-success mb-3'>
+          <div className='post-author card-header bg-success text-white' id={post.id}>
+            {post.user}
+          </div>
+
+          <div className='post-body card-body'>
+            {post.content}
+          </div>
+        </div>
+        <CommentBox comments={this.props.comments} />
+      </div>
+    );
   }
 }
 

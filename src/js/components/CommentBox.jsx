@@ -1,9 +1,9 @@
-import React, { Component } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import Comment from "./Comment.jsx"
 import CreateComment from "./CreateComment.jsx"
 
-class CommentBox extends Component {
+class CommentBox extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -20,19 +20,20 @@ class CommentBox extends Component {
   }
   render() {
     const comments = this.state.comments.map(function (comment) {
-      return React.createElement(Comment, {
-        key: comment.id,
-        id: comment.id,
-        content: comment.content,
-        user: comment.user
-      })
-    })
-    return React.createElement(
-      'div',
-      {className: 'commentBox ms-5'},
-      React.createElement('div', { className: 'comments-list' }, comments),
-      React.createElement(CreateComment, { onSubmitHandler: this.commentSubmitHandler })
-    )
+      return <Comment
+        key={comment.id}
+        id={comment.id}
+        content={comment.content}
+        user={comment.user}
+      />;
+    });
+
+    return (
+      <div>
+        <div className='comments-list'>{comments}</div>
+        <CreateComment onSubmitHandler={this.commentSubmitHandler} />
+      </div>
+    );
   }
 }
 

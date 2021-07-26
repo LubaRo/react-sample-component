@@ -1,17 +1,17 @@
-import React, { Component } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 
-class Comment extends Component {
+class Comment extends React.Component {
   render() {
-    return React.createElement(
-      "div",
-      { className: "comment card mb-3" },
-      React.createElement(
-      "div", { className: "commentAuthor card-header" }, this.props.user
-      ),
-      React.createElement(
-        "div", { className: "commentContent card-body" }, this.props.content
-      )
+    return (
+      <div className='comment card mb-3'>
+        <div className='comment-author card-header'>
+          {this.props.user}
+        </div>
+        <div className='comment-content card-body'>
+          {this.props.content}
+        </div>
+      </div>
     );
   }
 }

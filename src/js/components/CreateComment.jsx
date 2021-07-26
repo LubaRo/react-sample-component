@@ -1,7 +1,7 @@
-import React, { Component, createElement } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 
-class CreateComment extends Component {
+class CreateComment extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -36,31 +36,25 @@ class CreateComment extends Component {
     }))
   }
   render() {
-    return createElement(
-      'form',
-      {
-        className: 'create-comment',
-        onSubmit: this.handleSubmit
-      },
-      createElement('input', {
-        type: 'text',
-        className: 'd-block mt-3 form-control w-50',
-        placeholder: 'Your name',
-        value: this.state.user,
-        onChange: this.handleUserChange
-      }),
-      createElement('textarea', {
-        className: 'd-block mt-3 form-control w-50',
-        placeholder: 'Any thoughts?',
-        value: this.state.content,
-        onChange: this.handleTextChange
-      }),
-      createElement('input', {
-        className: 'd-block mt-3 mb-3 btn btn-primary',
-        type: 'submit',
-        value: 'Post'
-      })
-    )
+    return (
+      <form className='create-comment' onSubmit={this.handleSubmit}>
+        <input type='text'
+               className='d-block mt-3 form-control w-50'
+               placeholder='Your name'
+               value={this.state.user}
+               onChange={this.handleUserChange}
+        />
+        <textarea className='d-block mt-3 form-control w-50'
+                  placeholder='Any thoughts?'
+                  value={this.state.content}
+                  onChange={this.handleTextChange}
+        />
+        <input type='submit'
+               className='d-block mt-3 mb-3 btn btn-primary'
+               value='Post'
+        />
+      </form>
+    );
   }
 }
 

@@ -1,5 +1,5 @@
-import { createElement } from 'react'
-import { render } from 'react-dom'
+import React from 'react'
+import ReactDOM from 'react-dom'
 import Post from "./components/Post.jsx"
 
 const node = document.getElementById("root");
@@ -39,6 +39,6 @@ const postData = {
   ]
 };
 
-const App = createElement(Post, postData);
+const App = (<Post {...postData} />);
 
-render(App, node);
+ReactDOM.render(App, node);
