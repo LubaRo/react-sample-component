@@ -1,10 +1,9 @@
 import { createElement } from 'react'
 import { render } from 'react-dom'
 import Post from "./components/Post.jsx"
-import CommentBox from "./components/CommentBox.jsx";
 
 const node = document.getElementById("root");
-const data = {
+const postData = {
   post: {
     id: 123,
     content:
@@ -40,15 +39,6 @@ const data = {
   ]
 };
 
-const App = createElement(
-  Post,
-  data.post,
-  createElement(
-    CommentBox,
-    {
-      comments: data.comments
-    }
-  )
-)
+const App = createElement(Post, postData);
 
 render(App, node);
