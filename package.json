@@ -12,6 +12,7 @@
   "author": "lubaro",
   "license": "ISC",
   "devDependencies": {
+    "@babel/preset-es2015": "^7.0.0-beta.53",
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.5",
     "babel-preset-react": "^6.24.1",
@@ -23,6 +24,7 @@
   },
   "babel": {
     "presets": [
+      "es2015",
       "react"
     ]
   },
