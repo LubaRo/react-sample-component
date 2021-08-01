@@ -5,7 +5,8 @@
   "main": "js/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "watch": "webpack --config ./webpack.dev.config.js -w"
+    "watch": "webpack --config ./webpack.dev.config.js -w",
+    "start": "node server/server.js"
   },
   "keywords": [],
   "author": "lubaro",
@@ -24,5 +25,8 @@
     "presets": [
       "react"
     ]
+  },
+  "dependencies": {
+    "express": "^4.17.1"
   }
 }
